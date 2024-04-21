@@ -6,7 +6,8 @@ import org.testng.annotations.Test;
 
 public class Homework3 {
 
-      /*
+
+     /*
         Given
             https://reqres.in/api/users/3
         When
@@ -24,11 +25,9 @@ public class Homework3 {
         Response response = RestAssured.get("https://reqres.in/api/users/3");
         response.prettyPrint();
 
-        // Aseertions
+        // Aseertions Tests
         response.then().statusCode(200);
-
         response.then().contentType("application/json");
-
         response.then().statusLine("HTTP/1.1 200 OK");
 
     }
