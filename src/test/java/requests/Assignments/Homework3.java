@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 
 public class Homework3 {
 
-
      /*
         Given
             https://reqres.in/api/users/3
