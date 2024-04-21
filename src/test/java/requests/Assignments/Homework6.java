@@ -6,7 +6,9 @@ import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
+
+import io.restassured.path.json.JsonPath;
+import org.testng.asserts.SoftAssert;
 
 public class Homework6 extends AssignmentBaseUrl {
 
@@ -47,16 +49,34 @@ public class Homework6 extends AssignmentBaseUrl {
         Response response = given(spec).get("{first}/{second}/{third}");
         response.prettyPrint();
 
+        //Do assertion
+
         response
                 .then()
-                .statusCode(200)
-                .body("data.id", equalTo(3),
-                        "data.name", equalTo("true red"),
-                        "data.year", equalTo(2002),
-                        "data.color", equalTo("#BF1932"),
-                        "data.pantone_value", equalTo("19-1664"),
-                        "support.url", equalTo("https://reqres.in/#support-heading"),
-                        "support.text", equalTo("To keep ReqRes free, contributions towards server costs are appreciated!")
-                );
+                .contentType("application/json; charset=utf-8")
+                .statusCode(200);
+
+
+        JsonPath jsonPath = response.jsonPath();
+
+        int id = jsonPath.getInt("data.id");
+        String name = jsonPath.getString("data.name");
+        int year = jsonPath.getInt("data.year");
+        String color = jsonPath.getString("data.color");
+        String pantone_value = jsonPath.getString("data.pantone_value");
+        String url = jsonPath.getString("support.url");
+        String text = jsonPath.getString("support.text");
+
+        SoftAssert softAssert = new SoftAssert();
+
+        softAssert.assertEquals(id, 3);
+        softAssert.assertEquals(name, "true red");
+        softAssert.assertEquals(year, 2002);
+        softAssert.assertEquals(color, "#BF1932");
+        softAssert.assertEquals(pantone_value, "19-1664");
+        softAssert.assertEquals(url, "https://reqres.in/#support-heading");
+        softAssert.assertEquals(text, "To keep ReqRes free, contributions towards server costs are appreciated!");
+
+        softAssert.assertAll();
     }
 }
