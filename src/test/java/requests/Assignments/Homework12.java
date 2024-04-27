@@ -22,8 +22,8 @@ public class Homework12 {
      * (Use Pojo)
      */
     private final String url = "https://petstore.swagger.io/v2/pet";
-    private PetCategoryClass petCategoryPojo;
-    private PetTagClass petTagPojo;
+    private PetCategoryClass petCategory;
+    private PetTagClass petTag;
     private PetStorePetClass expectedData;
 
 
@@ -31,13 +31,13 @@ public class Homework12 {
     public void beforeMethod() {
         //set the expected data
         long id = System.currentTimeMillis();
-        petCategoryPojo = new PetCategoryClass(id, "cat");
+        petCategory = new PetCategoryClass(id, "cat");
         ArrayList<String> photoUrlList = new ArrayList<>();
         photoUrlList.add("uuu");
-        petTagPojo = new PetTagClass(id, "cute");
+        petTag = new PetTagClass(id, "cute");
         ArrayList<PetTagClass> tagsList = new ArrayList<>();
-        tagsList.add(petTagPojo);
-        expectedData = new PetStorePetClass(id, petCategoryPojo, "Sukar", photoUrlList, tagsList, "available");
+        tagsList.add(petTag);
+        expectedData = new PetStorePetClass(id, petCategory, "Sukar", photoUrlList, tagsList, "available");
 
 
     }
@@ -120,11 +120,11 @@ public class Homework12 {
                 .then()
                 .statusCode(200)
                 .body("id", equalTo(expectedData.getId())
-                        , "category.id", equalTo(petCategoryPojo.getId())
+                        , "category.id", equalTo(petCategory.getId())
                         , "category.name", equalTo(expectedData.getCategory().getName())
                         , "name", equalTo(expectedData.getName())
                         , "photoUrls", equalTo(expectedData.getPhotoUrls())
-                        , "tags.id[0]", equalTo(petTagPojo.getId())
+                        , "tags.id[0]", equalTo(petTag.getId())
                         , "tags.name[0]", equalTo(expectedData.getTags().getFirst().getName())
                         , "status", equalTo(expectedData.getStatus())
                 );
