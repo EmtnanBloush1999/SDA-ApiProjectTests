@@ -29,16 +29,17 @@ public class C01_RequestAndResponse {
 //        https://restful-booker.herokuapp.com/booking
 
 //        User sends a GET Request to the url
-        //RestAssured library is used to send request and get the response
-        Response response = RestAssured.get("https://restful-booker.herokuapp.com/booking");//get() method will return Response
-        //response.prettyPrint();//To see body on console in pretty way we can use prettyPrint() method.
+//        RestAssured library is used to send request and get the response
+        Response response = RestAssured.get("https://restful-booker.herokuapp.com/booking");//get() method will return Response Object
+//        response.prettyPrint();//To see body on console in pretty way we can use prettyPrint() method.
 
 //        HTTP Status Code should be 200
-        //Everything we need is in Response container
+//        Everything we need is in Response container
         int statusCode = response.statusCode();
         System.out.println("statusCode = " + statusCode);//200
 
 //        Content Type should be JSON
+//        sou -> shortcut for System.out.println();
         String contentType = response.contentType();
         System.out.println("contentType = " + contentType);
 
