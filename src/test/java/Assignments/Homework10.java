@@ -1,4 +1,4 @@
-package requests.Assignments;
+package Assignments;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;

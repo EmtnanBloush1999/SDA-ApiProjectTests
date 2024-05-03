@@ -1,6 +1,6 @@
 package requests;
 
-import requests.base_urls.BookerBaseUrl;
+import base_urls.BookerBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;

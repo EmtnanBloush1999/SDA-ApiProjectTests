@@ -1,6 +1,6 @@
 package requests;
 
-import requests.base_urls.BookerBaseUrl;
+import base_urls.BookerBaseUrl;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 

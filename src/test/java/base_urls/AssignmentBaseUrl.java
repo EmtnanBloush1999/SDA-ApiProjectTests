@@ -1,4 +1,4 @@
-package requests.base_urls;
+package base_urls;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
