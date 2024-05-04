@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Emtna/IdeaProjects/SDA-ApiProjectTests/src/test/java/Assignments/Homework16">
+        <classes>
+            <class name="Assignments.Homework16.H16_CreateContact"/>
+            <class name="Assignments.Homework16.H16_ReadContact"/>
+            <class name="Assignments.Homework16.H16_UpdateContact"/>
+            <class name="Assignments.Homework16.H16_DeleteContact"/>
+        </classes>
+    </test>
+</suite>
